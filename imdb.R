@@ -88,35 +88,31 @@ wss_values <- map_dbl(k, function(k){kmeans(d_1, k)$tot.withinss})
 plot(k, wss_values, 
      type = 'b', pch = 19, frame = F)
 
-#so we find out that 11 is the optimum number of clusters.
-kmeans11 <- kmeans(dist(d_1), 11)
+#so we find out that 7 is the optimum number of clusters.
+kmeans7 <- kmeans(dist(d_1), 7)
 
 #bar plot
-movies.kmeans11 <- cbind(data_1, kmeans11$cluster)
+movies.kmeans7 <- cbind(data_1, kmeans7$cluster)
 
-names(movies.kmeans11)
-names(movies.kmeans11)[names(movies.kmeans11) == 'kmeans11$cluster'] <- "cluster"
-movies.kmeans11
-kmeans.percent11 <- vector()
-for(i in 1:11){
-  kmeans.percent11[i] <- round(kmeans11$size[i]/ sum(kmeans11$size) * 100, 3)
+names(movies.kmeans7)
+names(movies.kmeans7)[names(movies.kmeans7) == 'kmeans7$cluster'] <- "cluster"
+movies.kmeans7
+kmeans.percent7 <- vector()
+for(i in 1:7){
+  kmeans.percent7[i] <- round(kmeans7$size[i]/ sum(kmeans7$size) * 100, 3)
 }
 
-kmeans.size11 <- data.frame(group = 1:11, size = kmeans11$size)
+kmeans.size7 <- data.frame(group = 1:7, size = kmeans7$size)
 
-ggplot(kmeans.size11, aes(x = group, y = size, fill = factor(group))) + geom_bar(stat = 'identity') + theme(legend.position =  "none") + geom_text(aes(label = paste(size, paste(kmeans.percent11, "%", sep = ""), sep = '\n')), vjust = 0.5, size = 4) + scale_x_discrete(limits = kmeans.size11$group)
+ggplot(kmeans.size7, aes(x = group, y = size, fill = factor(group))) + geom_bar(stat = 'identity') + theme(legend.position =  "none") + geom_text(aes(label = paste(size, paste(kmeans.percent7, "%", sep = ""), sep = '\n')), vjust = 0.5, size = 4) + scale_x_discrete(limits = kmeans.size7$group)
 
-cluster_1 <- movies.kmeans11[movies.kmeans11$cluster == 1, c('title', 'genre')]
-cluster_2 <- movies.kmeans11[movies.kmeans11$cluster == 2, c('title', 'genre')]
-cluster_3 <- movies.kmeans11[movies.kmeans11$cluster == 3, c('title', 'genre')]
-cluster_4 <- movies.kmeans11[movies.kmeans11$cluster == 4, c('title', 'genre')]
-cluster_5 <- movies.kmeans11[movies.kmeans11$cluster == 5, c('title', 'genre')]
-cluster_6 <- movies.kmeans11[movies.kmeans11$cluster == 6, c('title', 'genre')]
-cluster_7 <- movies.kmeans11[movies.kmeans11$cluster == 7, c('title', 'genre')]
-cluster_8 <- movies.kmeans11[movies.kmeans11$cluster == 8, c('title', 'genre')]
-cluster_9 <- movies.kmeans11[movies.kmeans11$cluster == 9, c('title', 'genre')]
-cluster_10 <- movies.kmeans11[movies.kmeans11$cluster == 10, c('title', 'genre')]
-cluster_11 <- movies.kmeans11[movies.kmeans11$cluster == 11, c('title', 'genre')]
+cluster_1 <- movies.kmeans7[movies.kmeans7$cluster == 1, c('title', 'genre')]
+cluster_2 <- movies.kmeans7[movies.kmeans7$cluster == 2, c('title', 'genre')]
+cluster_3 <- movies.kmeans7[movies.kmeans7$cluster == 3, c('title', 'genre')]
+cluster_4 <- movies.kmeans7[movies.kmeans7$cluster == 4, c('title', 'genre')]
+cluster_5 <- movies.kmeans7[movies.kmeans7$cluster == 5, c('title', 'genre')]
+cluster_6 <- movies.kmeans7[movies.kmeans7$cluster == 6, c('title', 'genre')]
+cluster_7 <- movies.kmeans7[movies.kmeans7$cluster == 7, c('title', 'genre')]
 
 cluster_1
 cluster_2
@@ -125,7 +121,3 @@ cluster_4
 cluster_5
 cluster_6
 cluster_7
-cluster_8
-cluster_9
-cluster_10
-cluster_11
