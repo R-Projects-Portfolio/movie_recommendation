@@ -2,8 +2,7 @@
 
 This is an unsupervised Clustering Model which clusters movies based on their Genres.
 
-The data for this project was collected from Data World's IMDB dataset.
-[imdb dataset](https://data.world/mahe432/movies/workspace/file?filename=IMDb%20movies.csv)
+The data for this project was collected from Data World's [IMDB dataset.](https://data.world/mahe432/movies/workspace/file?filename=IMDb%20movies.csv)
 
 The data looks like this.
 
