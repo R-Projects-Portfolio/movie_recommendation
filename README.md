@@ -29,7 +29,7 @@ Now we know that our data has 20 overall genres. So we first make 20 clusters by
 ![20_clusters](https://user-images.githubusercontent.com/97380339/166911572-833d671a-9a24-4ca4-8bec-b32c766a6770.png)
 
 So we can see that some clusters have exceptionally high values. Also, clustering individual data as a set is not ideal.
-So we try to find the optimum numbre of clusters by plotting an Elbow Curve.
+So we try to find the optimum number of clusters by plotting an Elbow Curve.
 
 
 ![elbow curve](https://user-images.githubusercontent.com/97380339/166911915-4296ff13-2ab2-4d60-b287-07172296fe2c.png)
